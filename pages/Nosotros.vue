@@ -16,48 +16,34 @@
                 >
                 <!-- Text slides with image -->
                 <b-carousel-slide
-                    caption="First slide"
-                    text="Nulla vitae elit libero, a pharetra augue mollis interdum."
-                    img-src="https://picsum.photos/1024/480/?image=52"
+                    caption="Productos frescos, saludables y naturales"
+                    img-src="https://images.alphacoders.com/552/552147.jpg"
                 ></b-carousel-slide>
 
-                <!-- Slides with custom text -->
-                <b-carousel-slide img-src="https://picsum.photos/1024/480/?image=54">
-                    <h1>Hello world!</h1>
-                </b-carousel-slide>
+                <b-carousel-slide
+                    caption="Brindar a nuestros clientes una experiencia superior"
+                    img-src="https://s1.1zoom.me/b5050/957/Autumn_Trees_Foliage_452696_1920x1080.jpg"
+                ></b-carousel-slide>
 
-                <!-- Slides with image only -->
-                <b-carousel-slide img-src="https://picsum.photos/1024/480/?image=58"></b-carousel-slide>
+                <b-carousel-slide
+                    caption="Brindar calidad."
+                    img-src="https://e00-expansion.uecdn.es/assets/multimedia/imagenes/2022/04/01/16488064638591.jpg"
+                ></b-carousel-slide>
 
-                <!-- Slides with img slot -->
-                <!-- Note the classes .d-block and .img-fluid to prevent browser default image alignment -->
-                <b-carousel-slide>
-                    <template #img>
-                    <img
-                        class="d-block img-fluid w-100"
-                        width="1024"
-                        height="480"
-                        src="https://picsum.photos/1024/480/?image=55"
-                        alt="image slot"
-                    >
-                    </template>
-                </b-carousel-slide>
+                <b-carousel-slide
+                    caption="Brindar confianza a nuestros consumidores al no utilizar preservantes."
+                    img-src="https://s1.1zoom.me/b4744/911/Grapes_Closeup_536290_1920x1080.jpg"
+                ></b-carousel-slide>
 
-                <!-- Slide with blank fluid image to maintain slide aspect ratio -->
-                <b-carousel-slide caption="Blank Image" img-blank img-alt="Blank image">
-                    <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eros felis, tincidunt
-                    a tincidunt eget, convallis vel est. Ut pellentesque ut lacus vel interdum.
-                    </p>
-                </b-carousel-slide>
                 </b-carousel>
         </div>
         <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quisquam, pariatur consequuntur. Eaque cum maxime dolorum quisquam sunt aspernatur molestiae odio est laborum ea. Repudiandae labore voluptatibus, ex illo dolorum in?
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, nemo corporis sunt aspernatur error repellendus, ipsum assumenda omnis quibusdam asperiores est quasi perferendis explicabo inventore ullam ab adipisci iure! Veritatis!
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugiat modi sapiente, ipsam nihil illo voluptas provident, doloribus soluta cumque tempora corporis tenetur, nam vero culpa consequuntur impedit doloremque ea quis! UNU O SIETE U SIETE AVENIDA UWU
+            Frutas, verduras y hortalizas frescas a la puerta de tu casa
+            Veggo trae lo mejor del campo, con una propuesta joven, fresca e innovadora.
+            Nuestro propósito es contribuir en la alimentación saludable de las familias chilenas, entregando frutas, verduras y hortalizas de calidad, con un excelente servicio y responsables con el medio ambiente.
+            Tenemos 3 pilares fundamentales: Calidad, Sustentabilidad, y Servicio.
         </p>
-        <Footer/>
+        <Footer class="mt-5"/>
     </div>
 </template>
 <script>

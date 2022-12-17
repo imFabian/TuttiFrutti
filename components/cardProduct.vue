@@ -1,5 +1,5 @@
 <template>
-    <div class="col-3 mb-3">
+    <div class="col-3 mb-3" style="border: 1px solid #cec9c9;padding: 10px;">
             <div class="card" style="width: 15rem;">
               <img :src="product.url" class="card-img-top" alt="...">
               <div class="card-body">
