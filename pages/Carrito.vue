@@ -8,7 +8,21 @@
                 <li class="list-group-item" v-for="(item, index) in getCart" :key="index">
                     <img :src="item.url" :alt="item.id" height="50px" width="50px">
                     <span>{{item.name}} <span class="badge badge-secondary" style="background-color:#ade373 !important;">{{item.amount}}</span></span>
-                    <span style="float: right;color:#36783d;font-weight: 500;font-size: 16;">${{(item.price * item.amount)}}</span>
+                    <div class="ml-3" style="float: right;">
+                        <div class="btn" style="background-color: #ade373;color:#36783d;font-weight: bold;" @click="addOrSubstractCart('substract',item)">
+                            <font-awesome-icon icon="minus" style="height:15px;color:#36783d;" />
+                        </div>
+                        <input type="text" disabled="disabled" :value="item.amount" style="width: 40px; height: 35px; text-align: center; font-size: 15px; font-weight: 400;">
+                        <div class="btn" style="background-color: #ade373;color:#36783d;font-weight: bold;" @click="addOrSubstractCart('add',item)">
+                            <font-awesome-icon icon="plus" style="height:15px;color:#36783d;"/>
+                        </div>
+                        <div class="btn" style="background-color: #e94040;color:#fff;font-weight: bold;" @click="deleteItem(item)">
+                            <font-awesome-icon icon="trash" style="height:15px;color:#fff;" />
+                        </div>
+                    </div>
+                    <div style="float: right;">
+                        <span style="color:#36783d;font-weight: 500;font-size: 16;">${{(item.price * item.amount)}}</span>
+                    </div>
                 </li>
             </ul>
             <div v-if="(getUserLogged != null)">
@@ -27,7 +41,7 @@
                             <span style="float: right;color: #36783d;font-weight: bold;">Total ${{getTotal}}</span>
                             <br>
                             <button class="btn btnPay mt-2" @click="pay()" :disabled="(nombre == '' || apellido == '' || rut == '' || direccion == '')">Pagar</button>
-
+ 
                             <br>
                             <br>
                             <br>
@@ -77,6 +91,25 @@ export default {
             }
             await this.$store.dispatch('setSaleDB',initialSale);
             this.$refs.buttonSubmit.click();
+        },
+        async addOrSubstractCart(action,item){
+            if(item.amount == 0 && action != 'add'){
+                return;
+            }
+            let copyCart = [...this.getCart];
+            let index = copyCart.findIndex(element => element.id === item.id);
+            let obj = {
+              item:item,
+              index:index,
+              action:action
+            };
+            await this.$store.dispatch('setCartStoreHandler',obj);
+        },
+        async deleteItem(item){
+            let copyCart = [...this.getCart];
+            let index = copyCart.findIndex(element => element.id === item.id);
+            copyCart.splice(index, 1);
+            await this.$store.dispatch('setCartStore',copyCart);  
         }
     },
     computed:{

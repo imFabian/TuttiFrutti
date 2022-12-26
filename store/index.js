@@ -21,6 +21,10 @@ export const mutations = {
     localStorage.setItem("cart", JSON.stringify(cart));
     state.cart = cart;
   },
+  changeCartHandler(state, obj) {
+    state.cart[obj.index].amount = obj.action == 'add' ? state.cart[obj.index].amount + 1 : state.cart[obj.index].amount - 1;
+    localStorage.setItem("cart", JSON.stringify(state.cart));
+  },
 }
 
 export const actions = {
@@ -29,6 +33,9 @@ export const actions = {
   },
   setCartStore({ state, commit }, cart) {
     commit('changeCart', cart);
+  },
+  setCartStoreHandler({ state, commit }, obj) {
+    commit('changeCartHandler',obj);
   },
   async initTransaction({ state, commit },item) {
     let { data } = await this.$axios.get(`https://main--sage-tanuki-610946.netlify.app/.netlify/functions/api/init/`+item.total+"/"+item.buy_order+"/"+item.session_id);

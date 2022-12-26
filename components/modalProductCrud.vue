@@ -8,7 +8,7 @@
         <div class="text-center bodymodal">
                 <input type="text" class="inputSearchAdmin mb-2" v-model="(name)" placeholder="Nombre">
                 <input type="text" class="inputSearchAdmin mb-2" v-model="(imgUrl)" placeholder="Imagen Url">
-                <input type="number" class="inputSearchAdmin mb-2" v-model="(price)" placeholder="Precio">
+                <input type="number" class="inputSearchAdmin mb-2" v-model="(price)" min="0" oninput="this.value = Math.abs(this.value)" placeholder="Precio">
                 <div class="error" v-show="(error != null)" style="color:red;">
                     {{error}}
                 </div>
@@ -28,10 +28,6 @@ export default {
     props:['product'],
     data() {
         return {
-            // name: "Pimiento",
-            // imgUrl:"https://s3.amazonaws.com/assets.lavegadelivery.cl/web-dist/fotos/productos/230/webp/pimiento_amarillo_un_9616_300x300.webp",
-            // price:1500,
-            // error:null
             name: "",
             imgUrl:"",
             price:0,
@@ -49,8 +45,8 @@ export default {
                 this.error = "Url imagen requerida";
                 return;
             }
-            if(this.price == 0){
-                this.error = "El precio no puede ser cero";
+            if(this.price == 0 || this.price < 0){
+                this.error = "El precio no puede ser cero o menor que cero";
                 return;
             }
             if(this.product != null){
